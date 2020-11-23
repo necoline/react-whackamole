@@ -1,8 +1,7 @@
 import React from "react";
 
-export default function Mole({ holeNumber, img, waitTime }) {
+export default function Mole({ holeNumber, img, waitTime, action }) {
   const [moleIsShowing, setMoleIsShowing] = React.useState(false);
-  const [readyToResetTimer, resetTimer] = React.useState(false);
 
   // show mole after the waitTime specified in the parent
   React.useEffect(() => {
@@ -21,7 +20,7 @@ export default function Mole({ holeNumber, img, waitTime }) {
   }
 
   return (
-    <div className="hole-container">
+    <div className="hole-container" onClick={() => action()}>
       <div className="hole">
         <img
           data-index={holeNumber}
