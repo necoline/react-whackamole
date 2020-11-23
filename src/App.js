@@ -1,6 +1,10 @@
-import fed from "./assets/king-mole-fed.png";
-import hungry from "./assets/king-mole-sad.png";
-import sad from "./assets/king-mole-sad.png";
+import kingFed from "./assets/king-mole-fed.png";
+import fed from "./assets/mole-fed.png";
+import kingHungry from "./assets/king-mole-hungry.png";
+import hungry from "./assets/mole-hungry.png";
+import sad from "./assets/mole-sad.png";
+import kingSad from "./assets/king-mole-sad.png";
+import kingLeaving from "./assets/king-mole-leaving.png";
 import leaving from "./assets/mole-leaving.png";
 import worm from "./assets/worm.png";
 import win from "./assets/win.png";
@@ -20,6 +24,60 @@ function App() {
   const getSadInterval = () => Date.now() + SAD_INTERVAL;
   const getKingStatus = () => Math.random() > 0.9;
   const getHungryInterval = () => Date.now() + HUNGRY_INTERVAL;
+
+  const nextFrame = () => {
+    const now = Date.now();
+    // there are 9 moles
+    for (let i = 0; i < 9; i++) {
+      if (moles[i].next < now) {
+        getNextStatus(moles[i]);
+      }
+    }
+    requestAnimationFrame(nextFrame);
+  };
+
+  const getNextStatus = (mole) => {
+    switch (mole.status) {
+      case "sad":
+      case "fed":
+        mole.next = getSadInterval();
+        if (mole.king) {
+          mole.img = kingLeaving;
+        } else {
+          mole.img = leaving;
+        }
+        mole.status = "leaving";
+        break;
+      case "leaving":
+        mole.next = getInterval();
+        mole.king = false;
+        mole.classList = "gone";
+        mole.status = "gone";
+        break;
+      case "hungry":
+        mole.classList = "";
+        if (mole.king) {
+          mole.img = kingSad;
+        } else {
+          mole.img = sad;
+        }
+        mole.status = "sad";
+        mole.next = getSadInterval();
+        break;
+      case "gone":
+        mole.status = "hungry";
+        mole.king = getKingStatus();
+        mole.next = getHungryInterval();
+        mole.node.children[0].classList.toggle("hungry", true);
+        mole.node.children[0].classList.toggle("gone", false);
+        if (mole.king) {
+          mole.node.children[0].src = "./king-mole-hungry.png";
+        } else {
+          mole.node.children[0].src = "./mole-hungry.png";
+        }
+        break;
+    }
+  };
 
   const moles = [
     {
