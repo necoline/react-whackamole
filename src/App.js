@@ -15,16 +15,16 @@ function App() {
           <img className="worm" src={worm} alt="worm meter" />
         </div>
       </div>
-      <Mole holeNumber={0} img={hungry} />
-      <Mole holeNumber={1} img={fed} />
-      <Mole holeNumber={2} img={hungry} />
-      <Mole holeNumber={3} img={sad} />
-      <Mole holeNumber={4} img={leaving} />
-      <Mole holeNumber={5} img={hungry} />
-      <Mole holeNumber={6} img={fed} />
-      <Mole holeNumber={7} img={sad} />
-      <Mole holeNumber={8} img={leaving} />
-      <Mole holeNumber={9} img={hungry} />
+      <Mole holeNumber={0} img={hungry} waitTime={500} />
+      <Mole holeNumber={1} img={hungry} waitTime={2000} />
+      <Mole holeNumber={2} img={hungry} waitTime={3000} />
+      <Mole holeNumber={3} img={hungry} waitTime={8000} />
+      <Mole holeNumber={4} img={hungry} waitTime={9000} />
+      <Mole holeNumber={5} img={hungry} waitTime={2500} />
+      <Mole holeNumber={6} img={hungry} waitTime={10000} />
+      <Mole holeNumber={7} img={hungry} waitTime={4000} />
+      <Mole holeNumber={8} img={hungry} waitTime={6000} />
+      <Mole holeNumber={9} img={hungry} waitTime={11000} />
     </section>
   );
 }
