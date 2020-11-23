@@ -1,8 +1,4 @@
 import React from "react";
-import fed from "./assets/mole-fed.png";
-import hungry from "./assets/mole-hungry.png";
-import sad from "./assets/mole-sad.png";
-import leaving from "./assets/mole-leaving.png";
 import win from "./assets/win.png";
 import worm from "./assets/worm.png";
 import Mole from "./Mole";
@@ -12,8 +8,8 @@ import "./App.css";
 function App() {
   const [score, setScore] = React.useState(0);
 
-  function updateScore() {
-    setScore(score + 1);
+  function updateScore(points) {
+    setScore(score + points);
   }
 
   return (
@@ -29,62 +25,62 @@ function App() {
           </div>
           <Mole
             holeNumber={0}
-            img={hungry}
+            isRoyal={false}
             waitTime={1000}
             action={updateScore}
           />
           <Mole
             holeNumber={1}
-            img={hungry}
-            waitTime={2000}
+            isRoyal={false}
+            waitTime={8500}
             action={updateScore}
           />
           <Mole
             holeNumber={2}
-            img={hungry}
+            isRoyal={false}
             waitTime={3000}
             action={updateScore}
           />
           <Mole
             holeNumber={3}
-            img={hungry}
-            waitTime={18000}
+            isRoyal={false}
+            waitTime={12500}
             action={updateScore}
           />
           <Mole
             holeNumber={4}
-            img={hungry}
-            waitTime={9000}
+            isRoyal={false}
+            waitTime={5000}
             action={updateScore}
           />
           <Mole
             holeNumber={5}
-            img={hungry}
-            waitTime={2500}
+            isRoyal={true}
+            waitTime={16500}
             action={updateScore}
           />
           <Mole
             holeNumber={6}
-            img={hungry}
-            waitTime={10000}
+            isRoyal={false}
+            waitTime={7000}
             action={updateScore}
           />
           <Mole
             holeNumber={7}
-            img={hungry}
-            waitTime={4000}
+            isRoyal={false}
+            waitTime={18500}
             action={updateScore}
           />
           <Mole
             holeNumber={8}
-            img={hungry}
-            waitTime={6000}
+            isRoyal={false}
+            waitTime={9000}
             action={updateScore}
           />
           <Mole
             holeNumber={9}
-            img={hungry}
-            waitTime={11000}
+            isRoyal={true}
+            waitTime={20500}
             action={updateScore}
           />
         </section>
