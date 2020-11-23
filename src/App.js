@@ -18,12 +18,12 @@ function App() {
 
   return (
     <>
-      {score === 10 ? (
+      {score === 11 ? (
         <img className="win" src={win} alt="mole" />
       ) : (
         <section className="bg">
           <div className="worm-box">
-            <div style={{ width: `90%` }} className="worm-container">
+            <div style={{ width: score * 10 + `%` }} className="worm-container">
               <img className="worm" src={worm} alt="worm meter" />
             </div>
           </div>
