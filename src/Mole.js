@@ -8,6 +8,14 @@ export default function Mole({ holeNumber, img, waitTime }) {
     return () => clearTimeout(timer);
   }, []);
 
+  function moleTimer() {
+    if (moleIsShowing) {
+      setTimeout(() => setMoleIsShowing(false), 2000);
+      return "mole";
+    }
+    return "hide";
+  }
+
   return (
     <div className="hole-container">
       <div className="hole">
@@ -15,7 +23,7 @@ export default function Mole({ holeNumber, img, waitTime }) {
           data-index={holeNumber}
           src={img}
           alt="mole"
-          className={moleIsShowing ? "mole" : "hide"}
+          className={moleTimer()}
         />
       </div>
     </div>
