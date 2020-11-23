@@ -1,9 +1,22 @@
+import React from "react";
+import hungryMole from "./assets/mole-hungry.png";
+import sadMole from "./assets/mole-sad.png";
 import "./App.css";
 
 function App() {
-  let score = 0;
+  const [isHungry, setHungry] = React.useState(false);
 
-  return <section className="bg"></section>;
+  React.useEffect(() => {
+    const timer = setTimeout(() => setHungry(!isHungry), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => setHungry(!isHungry), 1000);
+    return () => clearTimeout(timer);
+  }, [isHungry]);
+
+  return <img src={isHungry ? hungryMole : sadMole} alt="mole" />;
 }
 
 export default App;

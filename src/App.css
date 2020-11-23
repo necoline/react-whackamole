@@ -3,7 +3,7 @@
 }
 
 body {
-  cursor: url(./assets/cursor.png), default;
+  cursor: default;
   background-color: #c0c86d;
   display: flex;
   justify-content: center;
@@ -24,4 +24,9 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+.mole {
+  position: relative;
+  right: 30px;
 }
